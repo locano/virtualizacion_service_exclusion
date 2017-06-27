@@ -18,9 +18,10 @@ module.exports = {
             }
         });
         
-        var query = "CALL get_active_campaigns(?)";
+        var query = "CALL get_exclusion_service(?,?);";
         var params = [
-            req.params['campaign']
+            req.params['advertiser_campaigns'],            
+            req.params['publisher_campaign']
         ];
 
         connection.query(query, params, function(error, results, fields) {
