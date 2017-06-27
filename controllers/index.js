@@ -1,5 +1,5 @@
-const matching_controller = require('./matching_controller');
+const exclusion_controller = require('./exclusion_controller');
 
 module.exports = {
-    matching_controller
+    exclusion_controller
 }

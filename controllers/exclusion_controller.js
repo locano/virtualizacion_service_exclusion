@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 module.exports = {
-    getAdvertisers(req, res){
+    getExclusion(req, res){
         var connection = mysql.createConnection({
             host: 'zyklusdb.ciohag68m4xh.us-east-2.rds.amazonaws.com',
             user: 'zykladmin',

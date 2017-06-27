@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
  
-var matching_route = require('./matching');
-router.use('/matching', matching_route);
+var exclusion_route = require('./exclusion');
+router.use('/exclusion', exclusion_route);
  
 //API start
 router.get('/', function(req, res) {
