@@ -18,12 +18,13 @@ module.exports = {
             }
         });
         
-        var query = "CALL get_exclusion_service(?,?);";
+        var query = "CALL get_exclusion_service(?, ?);";
         var params = [
-            req.params['advertiser_campaigns'],            
-            req.params['publisher_campaign']
+            req.query['publisher_campaign'],
+            req.query['advertiser_campaigns']  
         ];
 
+        console.log(query + req.params['advertiser_campaigns'] +  req.params['publisher_campaign']);
         connection.query(query, params, function(error, results, fields) {
             //Close connection
             connection.end();
@@ -38,11 +39,12 @@ module.exports = {
             if(results[0].length == 0){
                 console.log('ERROR - No records found');
                 res.status(400).send({message: 'ERROR - No records found'});
-            }
+            }else{
             
             //Found records
             console.log('OK - Successful query: "' + query + '" with results: ' + results[0]);
             res.status(200).send(results[0]);
+            }
         }); 
     }
 };
